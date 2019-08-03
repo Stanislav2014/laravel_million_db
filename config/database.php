@@ -59,11 +59,11 @@ return [
 
         'pgsql' => [
            'driver' => 'pgsql',
-            'host' => $dbopts["host"] ?? '',
-            'port' => $dbopts["port"] ?? '',
-            'database' => ltrim($dbopts["path"] ?? '', '/'),
-            'username' => $dbopts["user"] ?? '',
-            'password' => $dbopts["pass"] ?? '',
+            'host' => 'ec2-54-228-246-214.eu-west-1.compute.amazonaws.com' ?? '',
+            'port' => 5432 ?? '',
+            'database' => 'db5bqsbph71r52',
+            'username' => 'lbqqnzpjcgjzeu' ?? '',
+            'password' => '4cbd2f3c2baeb2776f50d62326389fa42a654d4e019917287b65dd098820420e' ?? '',
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => env('DB_PREFIX', ''),
             'schema' => env('DB_SCHEMA', 'public'),
