@@ -1,6 +1,6 @@
 <?php
 
-$connection = getenv('DATABASE_URL') ? 'pgsql' : 'sqlite';
+$connection = getenv('DATABASE_URL_AMAZON') ? 'pgsql' : 'sqlite';
 $dbopts = parse_url(getenv('DATABASE_URL'));
 
 return [
