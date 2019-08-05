@@ -23,18 +23,26 @@ class SiteController extends BaseController
      */
     public function index()
     {
-        $topArticles = Article::with('user')
-            ->withCount('comments')
-            ->orderBy('comments_count', 'desc')
-            ->limit(5)
+             $topArticles = DB::table('articles')
+            ->whereIn(
+                'id',
+                (DB::table('comments')
+                    ->select('article_id')
+                    ->groupBy('article_id')
+                    ->orderByRaw('count(article_id) desc')
+                    ->limit(5))
+            )->get();
 
-            // ->join('users', 'users.id', '=', 'articles.author_id')
-            ->get();
-        //var_dump($topArticles);
-        $topAuthors = User::withCount('articles')
-            ->orderBy('articles_count', 'desc')
-            ->limit(5)
-            ->get();
+        $topAuthors = DB::table('users')
+        ->whereIn(
+            'id',
+            (DB::table('articles')
+                ->select('author_id')
+                ->groupBy('author_id')
+                ->orderByRaw('count(author_id) desc')
+                ->limit(5))
+        )->get();
+        
         $lastComments = Comment::orderBy('updated_at', 'desc')
             ->limit(5)
             ->get();
