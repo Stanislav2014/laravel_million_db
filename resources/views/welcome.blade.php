@@ -12,7 +12,7 @@
                 </p>
                 <h3>Автор</h3>
                 <p>
-                    <a href="{{ route('authors.show', [$article->author_id]) }}">{{$article->user->name}}</a>
+                    <a href="{{ route('authors.show', [$article->author_id]) }}">{{ '' }}</a>
                 </p>
                 <h3>Содержание</h3>
                 <p>
