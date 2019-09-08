@@ -1,6 +1,6 @@
 <?php
 
-$connection = getenv('DATABASE_URL_AMAZON') ? 'pgsql' : 'sqlite';
+$connection = getenv('ATABASE_URL_TIMEWEB') ? 'pgsql' : 'sqlite';
 $dbopts = parse_url(getenv('DATABASE_URL_TIMEWEB'));
 
 return [
